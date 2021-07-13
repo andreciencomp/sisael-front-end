@@ -1,0 +1,13 @@
+#subtopo{
+    font-style: italic;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#parte{
+    color:whitesmoke;
+    background-color: rgb(1, 115, 239);
+    padding-left: 1%;
+    width: 20%;
+    border-bottom-right-radius: 10px;
+}

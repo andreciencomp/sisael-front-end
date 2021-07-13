@@ -1,0 +1,13 @@
+.opcao{
+    display: flex;
+    background-color: rgb(1, 115, 239);
+    color: whitesmoke;
+    text-align: center;
+    height: 80px;
+    width: 120px;
+    border-radius: 15px;
+}
+
+.name{
+    margin: auto;
+}

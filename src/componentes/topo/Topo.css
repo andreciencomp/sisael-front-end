@@ -1,0 +1,19 @@
+#top{
+    color:whitesmoke;
+    background-color: darkblue;
+    padding-top: 0.1%;
+    padding-bottom: 0.1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#divlogo{
+    width: 5%;
+}
+
+a{
+    color: whitesmoke;
+    text-decoration:none
+}

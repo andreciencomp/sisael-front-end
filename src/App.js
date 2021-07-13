@@ -1,7 +1,11 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import './App.css';
-import JanelaInicial from './componentes/JanelaInicial/JanelaInicial'
+
+import Topo from './componentes/topo/Topo'
+import SubTopo from './componentes/subTopo/SubTopo'
+import CampoOpcao from './componentes/campoOpcao/campoOpcao';
+import ButtonAdd from './componentes/buttonAdd/buttonAdd';
 
 function App() {
   return (
@@ -9,7 +13,10 @@ function App() {
         <BrowserRouter>
           <Switch>
               <Route path='/'>
-                  <JanelaInicial/>
+                  <Topo/>
+                  <SubTopo />
+                  <CampoOpcao />
+                  <ButtonAdd />
               </Route>
           </Switch>
         </BrowserRouter>
