@@ -1,0 +1,55 @@
+.modal-container{
+    display: flex;
+    height: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.modal-background{
+    position:absolute;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
+    opacity: 30%;
+
+}
+
+
+.modal-container-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    position:absolute;
+    opacity: 100%;    
+    min-width: 500px;
+    max-height: 400px;
+    background-color: thistle;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+
+.modal-container form{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-container input{
+
+    height: 30px;
+}
+
+.modal-container .buttons-area{
+
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.modal-container button{
+    margin-top: 10px;
+    margin-left: 10px;
+}

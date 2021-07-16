@@ -1,0 +1,19 @@
+.container{
+
+    display: flex;
+
+}
+
+.barra-operacoes{
+    display: flex;
+    flex-direction: row;
+    background-color: coral;
+}
+
+.barra-container button{
+
+        border-radius: 8px;
+        border-style: none;
+        background-color: white;
+
+}
