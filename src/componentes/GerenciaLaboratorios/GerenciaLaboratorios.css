@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+.btn-tab{
+
+
+    background-color: burlywood;
+}

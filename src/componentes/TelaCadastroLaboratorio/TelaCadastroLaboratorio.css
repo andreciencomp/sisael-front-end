@@ -1,0 +1,57 @@
+.container-tela{
+
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+}
+
+.container-tela form{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-tela form input{
+
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.form-btn{
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.todo-controle{
+    display: flex;
+    flex-direction: row;
+    background-color: indianred;
+}
+
+.todo-controle div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-todo{
+    display: flex;
+    flex-direction: row;
+    background-color: royalblue;
+}
+
+
+.lista-salas{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.lista-salas-todo{
+    display: block;
+    margin-top:10px;
+}
+
+.lista-salas-todo p{
+    font-family: Verdana;
+}
