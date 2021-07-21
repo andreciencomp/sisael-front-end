@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import './TelaCadastroLaboratorio.css'
 import TelaCadastroSala from '../TelaCadastroSala/TelaCadastroSala'
+import axios from 'axios'
 
 function TelaCadastroLaboratorio(){
 
@@ -9,7 +10,6 @@ function TelaCadastroLaboratorio(){
     const[listaSala, setListaSala] = useState([]);
 
     useEffect(()=>{
-
         
     });
 
@@ -21,34 +21,28 @@ function TelaCadastroLaboratorio(){
        console.log(listaSala);
     }
 
-    async function evtCadastrarLaboratorio(e){
-        e.preventDefault();
-        let lab = {nome:'Laboratorio', salas: listaSala};
-        console.log("lista de labs: " + JSON.stringify(lab));
-
-        let dados = {
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json',
-
-            },
-            body:JSON.stringify(lab)
-
-        };
-
-        let resposta = await fetch("http://localhost:8080/laboratorios/cadastrar",dados);
-        console.log(await resposta.json());
-
-        
-
-    }
-
     function adicionarSala(e){
         e.preventDefault();
         listaSala.push({nome: e.target.nome.value});
         setSala({nome: e.target.nome.value});//e.target.nome.value});
 
    }
+
+   async function evtCadastrarLaboratorio(e){
+    e.preventDefault();
+
+    axios.post('http://localhost:8080/laboratorio/cadastrar', {
+            nome: sala
+        }).then(response =>{
+            console.log(response.data.idLab);
+            console.log(response.data.nome);
+            this.setState({novoItem:{id:response.data.id}});
+        }).catch(error => {
+            console.log(error);
+        })
+
+    };
+
 
     return(
         <div className="container-tela">
