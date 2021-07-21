@@ -6,9 +6,9 @@ import axios from 'axios'
 
 function TelaCadastroLaboratorio(){
 
+    const[listaSala, setListaSala] = useState([])
     const[sala, setSala] = useState(null);
-    const[listaSala, setListaSala] = useState([]);
-
+    const[idLab, setIdLab] = useState(null);
     useEffect(()=>{
         
     });
@@ -24,30 +24,40 @@ function TelaCadastroLaboratorio(){
     function adicionarSala(e){
         e.preventDefault();
         listaSala.push({nome: e.target.nome.value});
-        setSala({nome: e.target.nome.value});//e.target.nome.value});
+        setSala({nome: e.target.nome.value});
+        e.target.nome.value = "";
+   }
 
+   function cadastrarSalas(id){
+       
+    listaSala.map((s,i)=>
+        axios.post('http://localhost:8080/sala/cadastrar/'+id, {
+            nome: s.nome
+        }).then(response =>{
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })    
+    );
    }
 
    async function evtCadastrarLaboratorio(e){
     e.preventDefault();
 
     axios.post('http://localhost:8080/laboratorio/cadastrar', {
-            nome: sala
+            nome: e.target.nomeLab.value
         }).then(response =>{
-            console.log(response.data.idLab);
-            console.log(response.data.nome);
-            this.setState({novoItem:{id:response.data.id}});
+            console.log(response.data);
+           cadastrarSalas(response.data.id);
         }).catch(error => {
             console.log(error);
         })
-
     };
-
 
     return(
         <div className="container-tela">
             <form onSubmit={evtCadastrarLaboratorio}>
-                <input type="text" placeholder="Nome do Laboratorio"/>
+                <input type="text" name="nomeLab" placeholder="Nome do Laboratorio"/>
                 <div class="form-btn">
                     <button type="submit">Cadastrar</button>
                 </div>
@@ -57,6 +67,7 @@ function TelaCadastroLaboratorio(){
                 <form className="todo-controle" onSubmit={adicionarSala}>
                     <div>
                         <input name="nome" type="text" placeholder="Adicionar nome da sala"/>
+
                         <button type="submit">Adicionar Sala</button>
                     </div>
                 </form>
