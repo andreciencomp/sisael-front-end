@@ -1,16 +1,6 @@
 
 .form-sala{
-
     display: flex;
     align-items: center;
     background-color: green;
-
-
-}
-
-.form-sala button{
-
-    background-color: red;
-    color:white;
-    border-radius: 8px;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import './TelaCadastroEquipamento.css'
 function TelaCadastroEquipamento(props) {
 
@@ -12,53 +13,35 @@ function TelaCadastroEquipamento(props) {
 
     function btnCadastrar(e) {
         e.preventDefault();
-        setTombamento(e.target.tombamento.value);
-        setNome(e.target.nome.value)
 
-        let opcoes = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ tombamento: e.target.tombamento.value, nome: e.target.nome.value })
-        };
-
-        fetch('http://localhost:8080/equipamentos/cadastrar'
-            , opcoes)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                alert("Cadastrado");
-                e.target.tombamento.value = ""
-            });
-
-
+        console.log("Chegou aqui");
+        axios.post('http://localhost:8080/equipamentos/cadastrar',{
+            idSala: e.target.idSala.value,
+            tombamento: e.target.tombamento.value,
+            nome: e.target.nome.value
+        }).then(response => {
+                console.log(response.data);
+            }).catch(error => {
+                console.log(error);
+            })
     }
-
-
-
-
 
     return (
         <div className='modal-container'>
             <div className='modal-background'></div>
             <div className='modal-container-inner'>
                 <form onSubmit={btnCadastrar}>
-                    <label for='tombamento'>Tombamento</label>
-                    <input name='tombamento' type='text' />
-                    <label for='nome'>Nome</label>
-                    <input id='nome' type='text'></input>
-                    <label for='laboratorio'>Laboratorio</label>
-                    <select name="select">
-                        <option value="valor1">Valor 1</option>
-                        <option value="valor2" selected>Valor 2</option>
-                        <option value="valor3">Valor 3</option>
-                    </select>
+                    <label>Tombamento</label>
+                    <input name='tombamento' type="number" />
+                    <label>Nome</label>
+                    <input name='nome' type='text' />
+                    <label>Id sala</label>
+                    <input name='idSala' type='number' className="sala" />
                     <div className='buttons-area'>
                         <button type='submit' >Cadastrar</button>
                         <button id='cancelar' onClick={btnCancelar}>Cancelar</button>
                     </div>
                 </form>
-
-
             </div>
         </div>
     );

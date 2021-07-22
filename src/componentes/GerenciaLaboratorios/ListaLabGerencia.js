@@ -12,23 +12,27 @@ export default class ListaLabGerencia extends Component {
                 this.setState({ labsNome: res.data });
             });
     }
-
+    /*
     componentDidUpdate() {
         axios.get('http://localhost:8080/laboratorio/listar')
             .then(res => {
                 this.setState({ labsNome: res.data });
             });
     }
-
+    */
     render() {
 
         const { labsNome } = this.state;
         return (
             <>
                 {labsNome.map(labs => (
-                    <div className="div-lab">
+                    <div className="div-lab" key={labs.id}>
                         <h2> {labs.nome} </h2>
-                        <button key={labs.id}>Administrar</button>
+                        <div className="div-button-labs-adm">
+                            <button className="btn-administrar" id={labs.id} name={labs.nome} onClick={this.props.abrir}>
+                                Administrar
+                            </button>
+                        </div>
                     </div>
                 ))}
             </>
