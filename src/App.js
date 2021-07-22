@@ -4,7 +4,7 @@ import './App.css';
 
 import TelaGerencia from'./componentes/TelaGerencia/TelaGerencia'
 import TelaInicial from './componentes/TelaInicial/TelaInicial';
-
+import TelaUsuario from './componentes/TelaUsuario/TelaUsuario'
 function App() {
   return (
     <div className="App">
@@ -18,7 +18,7 @@ function App() {
                   <TelaGerencia/>
               </Route>
               <Route path='/usuario'> 
-
+                  <TelaUsuario />
               </Route>
           </Switch>
         </BrowserRouter>

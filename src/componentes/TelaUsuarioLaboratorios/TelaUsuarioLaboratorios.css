@@ -1,0 +1,28 @@
+.div-list-labs{
+    display: flex;
+    background-color: cornflowerblue;
+}
+
+.div-list-labs .div-lab {
+    margin: 5px;
+}
+
+.div-list-labs .div-lab .div-button-labs-adm {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.div-list-labs .div-lab .div-button-labs-adm button {
+    height: 30px;
+    width: 100%;
+}
+
+.div-salas{
+    background-color: lightblue;
+    display: flex;
+    margin-top: 30px;
+}
+
+.div-lab{
+    flex: 1;
+}
