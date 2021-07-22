@@ -41,9 +41,9 @@ function TelaCadastroEquipamento(props){
                 <div className='modal-background'></div>
                 <div className='modal-container-inner'>
                     <form onSubmit={btnCadastrar}>
-                        <label for='tombamento'>Tombamento</label>
+                        <label htmlFor='tombamento'>Tombamento</label>
                         <input name='tombamento' type='text'/>
-                        <label for='nome'>Nome</label>
+                        <label htmlFor='nome'>Nome</label>
                         <input id='nome' type='text'></input>
                         <div className='buttons-area'>
                             <button type='submit' >Cadastrar</button>

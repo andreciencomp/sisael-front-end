@@ -1,9 +1,20 @@
-.container{
+.container-gerencia-lab{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    background-color: violet;
+    align-items: center;
 }
 .btn-tab{
 
-
+    width: 100%;
     background-color: burlywood;
+}
+
+.container-tela{
+    margin-top: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: yellow;
 }

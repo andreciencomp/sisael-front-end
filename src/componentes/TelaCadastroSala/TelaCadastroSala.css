@@ -1,4 +1,9 @@
 
+.h1{
+
+    align-self: center;
+}
+
 .form-sala{
 
     display: flex;

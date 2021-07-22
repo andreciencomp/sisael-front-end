@@ -1,0 +1,42 @@
+.container-horarios{
+
+    display: flex;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container-horarios table{
+
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    margin-top: 10px;
+}
+.container-horarios td{
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+}
+.container-horarios select{
+    display: flex;
+    width: 100%;
+
+}
+
+.container-horarios .horarios{
+    margin-top:20px;
+}
+
+.container-horarios .select-horario{
+    display: flex;
+    flex-direction: row;
+}
+
+.container-horarios option{
+    width: fit-content;
+}
+
+.container-horarios button{
+
+    height: fit-content;
+    margin-top: 10px;
+}

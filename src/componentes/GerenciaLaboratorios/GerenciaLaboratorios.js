@@ -1,20 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TelaCadastroLaboratorio from '../TelaCadastroLaboratorio/TelaCadastroLaboratorio'
 import './GerenciaLaboratorios.css'
 
 function GerenciaLaboratorios(){
 
 
+    let [telaCadLabVisivel, setTelaCadVisivel] = useState(false);
+
+    function evtMostrarTelaCadastro(e){
+        e.preventDefault();
+        if(telaCadLabVisivel==true){
+            setTelaCadVisivel(false);
+        }else{
+            setTelaCadVisivel(true);
+        }
+
+    }
 
     return (
-        <div class="container">
+        <div className="container-gerencia-lab">
             
-            <div class="btn-tab">
-                <button>Cadastrar Laboratorio</button>
+            <div className="btn-tab">
+                <button onClick={evtMostrarTelaCadastro}>Cadastrar Laboratorio</button>
             </div>
-            <div class="container-tela">
-                
-                <TelaCadastroLaboratorio/>
+
+            <div className="container-tela">
+                {telaCadLabVisivel && <TelaCadastroLaboratorio/>}
             </div>
 
         </div>

@@ -37,6 +37,7 @@ function TelaCadastroLaboratorio(){
         };
 
         let resposta = await fetch("http://localhost:8080/laboratorios/cadastrar",dados);
+        
         console.log(await resposta.json());
 
         
@@ -52,6 +53,7 @@ function TelaCadastroLaboratorio(){
 
     return(
         <div className="container-tela">
+            <h1>Cadastro de Laboratório</h1>
             <form onSubmit={evtCadastrarLaboratorio}>
                 <input type="text" placeholder="Nome do Laboratorio"/>
                 <div class="form-btn">
