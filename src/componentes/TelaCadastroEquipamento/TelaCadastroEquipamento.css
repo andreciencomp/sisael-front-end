@@ -53,3 +53,8 @@
     margin-top: 10px;
     margin-left: 10px;
 }
+
+.modal-container select{
+
+    height: 30px;
+}
