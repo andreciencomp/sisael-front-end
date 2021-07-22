@@ -2,8 +2,13 @@
     display: flex;
     justify-content: center;
 }
+
+.list-Lab{
+    display: flex;
+    background-color: cornflowerblue;
+    padding: 1% 5% 2% 2%;
+}
+
 .btn-tab{
-
-
     background-color: burlywood;
 }

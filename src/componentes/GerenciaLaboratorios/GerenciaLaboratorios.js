@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import TelaCadastroLaboratorio from '../TelaCadastroLaboratorio/TelaCadastroLaboratorio'
+import ListaLabGerencia from './ListaLabGerencia'
 import './GerenciaLaboratorios.css'
 import axios from 'axios'
+import { object } from 'prop-types';
 
 function GerenciaLaboratorios() {
 
@@ -18,6 +20,7 @@ function GerenciaLaboratorios() {
     function listarLaboratorios() {
         axios.post('http://localhost:8080/laboratorio/listar')
         .then(response => {
+            console.log("entrou");
             console.log(response.data);
             setLabs({labs: response.data.nome});
         }).catch(error => {
@@ -27,12 +30,13 @@ function GerenciaLaboratorios() {
 
     return (
         <div class="container">
-
+            <div class="list-Lab">
+                <ListaLabGerencia />
+            </div>
             <div class="btn-tab">
                 <button onClick={exibirModal}>Cadastrar Laboratorio</button>
             </div>
             <div class="container-tela">
-
                 {mostrarModal && <TelaCadastroLaboratorio callback={setMostrarModal} />}
             </div>
 
