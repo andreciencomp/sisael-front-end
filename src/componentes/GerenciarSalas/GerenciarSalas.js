@@ -1,25 +1,42 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+import "./GerenciarSalas.css"
+import ListarSalaGerencia from '../ListarSalaGerencia'
+import TelaCadastroEquipamento from '../TelaCadastroEquipamento/TelaCadastroEquipamento';
+
 function GerenciarSalas(props) {
 
-    const [Lab, setLab] = useState();
-    const [edit, setEdit] = useState(false);
+    const [lab, setLab] = useState();
+    const [sala, setSala] = useState();
+    const [mostrarModalCadastro, setMostrarModalCadastro] = useState(false);
 
-    function editarLab(){
-        if(edit)
-            setEdit(false)
-        else
-            setEdit(true)
+    function addEquipamento(e) {
+        if (mostrarModalCadastro == null) {
+            setSala({ id: e.target.id, nome: e.target.name });
+            setMostrarModalCadastro(true);
+        } else {
+            if (mostrarModalCadastro.nome !== e.target.name) {
+                setSala({ id: e.target.id, nome: e.target.name });
+                setMostrarModalCadastro(true);
+            } else {
+                setMostrarModalCadastro(false);
+            }
+        }
     }
 
     return (
         <div className="div-salas">
-            <h1>{props.idLab.nome}</h1>
-
-            <div className="div-buttons">
-                <button onClick={editarLab}>Editar</button>
+            <div className="lab-info">
+                <h1>{props.idLab.nome}</h1>
+                <button>Editar</button>
                 <button>Apagar</button>
+            </div>
+            <div className="lista-salas">
+                <ListarSalaGerencia lab={props.idLab} abrir={addEquipamento} />
+            </div>
+            <div>
+                {mostrarModalCadastro && <TelaCadastroEquipamento callback={setMostrarModalCadastro} sala={sala} />}
             </div>
         </div>
     )

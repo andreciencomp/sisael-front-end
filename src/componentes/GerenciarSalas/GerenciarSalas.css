@@ -1,0 +1,12 @@
+.div-salas{
+    background-color: rgba(100, 148, 237, 0.877);
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.div-salas .lista-salas{
+    padding-left: 30px;
+    display: flex;
+    flex-direction: row;
+}

@@ -13,17 +13,20 @@ function TelaCadastroEquipamento(props) {
 
     function btnCadastrar(e) {
         e.preventDefault();
-
-        console.log("Chegou aqui");
-        axios.post('http://localhost:8080/equipamentos/cadastrar',{
-            idSala: e.target.idSala.value,
-            tombamento: e.target.tombamento.value,
-            nome: e.target.nome.value
-        }).then(response => {
+        if (e.target.tombamento.value !== "" && e.target.nome.value !== "") {
+            axios.post('http://localhost:8080/equipamentos/cadastrar', {
+                idSala: props.sala.id,
+                tombamento: e.target.tombamento.value,
+                nome: e.target.nome.value
+            }).then(response => {
                 console.log(response.data);
             }).catch(error => {
                 console.log(error);
             })
+
+            props.callback(false);
+        }
+
     }
 
     return (
@@ -35,8 +38,8 @@ function TelaCadastroEquipamento(props) {
                     <input name='tombamento' type="number" />
                     <label>Nome</label>
                     <input name='nome' type='text' />
-                    <label>Id sala</label>
-                    <input name='idSala' type='number' className="sala" />
+                    <label>Nome da sala</label>
+                    <input name='nomeSala' type='text' className="sala" value={props.sala.nome} disabled />
                     <div className='buttons-area'>
                         <button type='submit' >Cadastrar</button>
                         <button id='cancelar' onClick={btnCancelar}>Cancelar</button>

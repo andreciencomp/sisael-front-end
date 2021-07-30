@@ -25,13 +25,8 @@ function GerenciaLaboratorios() {
             setLab({ id: e.target.id, nome: e.target.name });
             setMostrarModalLab(true);
         } else {
-            if (lab.nome !== e.target.name) {
-                setLab({ id: e.target.id, nome: e.target.name });
-                setMostrarModalLab(true);
-            } else {
-                setLab();
-                setMostrarModalLab(false);
-            }
+            setLab();
+            setMostrarModalLab(false);
         }
     }
 

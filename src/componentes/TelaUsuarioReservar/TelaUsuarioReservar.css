@@ -1,0 +1,14 @@
+.busca{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.busca .controle-busca input {
+    width: 300px;
+    height: 30px;
+}
+
+.busca .controle-busca button {
+    width: 90px;
+    height: 36px;
+}

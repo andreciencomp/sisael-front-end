@@ -18,12 +18,12 @@ export default class ListarSalaUsuario extends Component {
         const { salas } = this.state;
         return (
             <>
-                {salas.map(labs => (
-                    <div className="div-lab" key={labs.id}>
-                        <h2> {labs.nome} </h2>
-                        <div className="div-button-labs-adm">
-                            <button className="btn-visualizar" id={labs.id} name={labs.nome} onClick={this.props.abrir}>
-                                Visualizar equipamentos
+                {salas.map(salas => (
+                    <div className="div-lab" key={salas.id}>
+                        <h2> {salas.nome} </h2>
+                        <div className="div-button-salas-adm">
+                            <button className="btn-visualizar" id={salas.id} name={salas.nome} onClick={this.props.abrir}>
+                                Adicionar equipamento
                             </button>
                         </div>
                     </div>
