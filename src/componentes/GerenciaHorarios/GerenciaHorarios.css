@@ -3,6 +3,14 @@
     display: flex;
     justify-content: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+}
+
+.container-horarios .titulo{
+    font-weight: 600;
+    padding:10px;
+    text-align: center;
+    border-style: none;
 }
 
 .container-horarios table{
@@ -11,16 +19,70 @@
     border-radius: 10px;
     border-width: 2px;
     margin-top: 10px;
+    width: 400px;
 }
 .container-horarios td{
-    flex-direction: column;
     background-color: rgb(255, 255, 255);
+    padding:0px;
+    border: solid 1px;
+    text-align: center;
+}
+
+.container-horarios .btn-cad{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container-horarios .btn-cad-td {
+    border-style: none;
+
+}
+
+.container-horarios  .row-horario button{
+    border-style: none;
+
+}
+.container-horarios .btn-remover{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+
+}
+
+.container-horarios .btn-remover button{
+    background-color: rgb(255, 73, 73);
+    color:white;
+    border-style: none;
+    border-radius: 5px;
+    height: 30px;
+    width:100%;
+    
+}
+
+.container-horarios .btn-remover button:hover{
+    background-color: red;
+    transition: background-color ease 0.5s;
+}
+
+.container-horarios .btn-cad button{
+    width: 100%;
+    height: 100%;
+
 }
 .container-horarios select{
     display: flex;
     width: 100%;
 
 }
+
+
 
 .container-horarios .horarios{
     margin-top:20px;
@@ -38,5 +100,5 @@
 .container-horarios button{
 
     height: fit-content;
-    margin-top: 10px;
+    margin-top: 0px;
 }

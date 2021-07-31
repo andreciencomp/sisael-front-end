@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './GerenciaHorarios.css'
 
-
 function GerenciaHorarios() {
 
     let horas = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
@@ -12,7 +11,7 @@ function GerenciaHorarios() {
     const [minutoFinalSelecionado, setMinutoFinalSelecionado] = useState(0);
 
     for (let i = 0; i < 60; i++) {
-        if ((i % 5) == 0) {
+        if ((i % 5) === 0) {
             minutos.push(i);
         }
 
@@ -112,16 +111,12 @@ function GerenciaHorarios() {
 
     }
 
-
-
-
-
     return (
         <div className="container-horarios">
 
             <table>
                 <tr>
-                    <td colSpan='2'>Cadastrar Novo horário</td>
+                    <td className="titulo" colSpan='3'>Cadastrar Novo horário</td>
                 </tr>
                 <tr>
 
@@ -130,14 +125,14 @@ function GerenciaHorarios() {
                             <select onChange={evtSelectHoraInicial}>
                                 {horas.map((hora) => {
                                     return (
-                                        <option value={hora}>{hora}</option>
+                                        <option value={hora}>{hora<10?"0"+hora:hora}</option>
                                     )
                                 })}
                             </select>
                             <select onChange={evtSelectMinutoInicial}>
                                 {minutos.map((minuto) => {
                                     return (
-                                        <option value={minuto}>{minuto}</option>
+                                        <option value={minuto}>{minuto<10?"0"+minuto:minuto}</option>
                                     )
                                 })}
                             </select>
@@ -148,22 +143,26 @@ function GerenciaHorarios() {
                             <select onChange={evtSelectHoraFinal}>
                                 {horas.map((hora) => {
                                     return (
-                                        <option value={hora}>{hora}</option>
+                                        <option value={hora}>{hora<10?"0"+hora:hora}</option>
                                     )
                                 })}
                             </select>
                             <select onChange={evtSelectMinutoFinal}>
                                 {minutos.map((minuto) => {
                                     return (
-                                        <option value={minuto}>{minuto}</option>
+                                        <option value={minuto}>{minuto<10?"0"+minuto:minuto}</option>
                                     )
                                 })}
                             </select>
                         </div>
                     </td>
 
-                    <td>
-
+                    <td className="btn-cad-td">
+                        <div className="btn-cad">
+                            <button onClick={evtAdicionarHorario}>
+                                Adicionar
+                            </button>
+                        </div>
                     </td>
                 </tr>
                 <tr className='horarios'>
@@ -176,7 +175,7 @@ function GerenciaHorarios() {
                         <tr>
                             <td>{horario.horaInicial}</td>
                             <td>{horario.horaFinal}</td>
-                            <td>
+                            <td className="btn-remover">
                                 <button value={horario.id} onClick={evtRemoverHorario}>Remover</button>
                             </td>
 
@@ -185,7 +184,7 @@ function GerenciaHorarios() {
                 })}
 
             </table>
-            <button onClick={evtAdicionarHorario}>Adicionar Horario</button>
+            
 
         </div>
     );

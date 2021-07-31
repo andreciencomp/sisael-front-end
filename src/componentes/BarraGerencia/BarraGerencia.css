@@ -1,0 +1,44 @@
+.barra-gerencia{
+
+    display:flex;
+    flex-direction: row;
+    height: 50px;
+    background-color: rgb(57, 136, 255);
+    align-items: center;
+    justify-content: space-between
+
+
+}
+
+.topo{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aquamarine;
+
+
+}
+
+
+
+.barra-gerencia a{
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 3px;
+
+
+}
+
+.barra-gerencia a:hover{
+
+    background-color: white;
+}
+
+.barra-gerencia a:visited{
+
+    color: black;
+}

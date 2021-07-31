@@ -1,34 +1,48 @@
-.container-tela{
-
+.container-tela-cadastro{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    align-content: center;
+    width: 100%;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: teal;
+    background-color: rgb(215, 225, 255);
+    
+    padding: 10px;
 
 
 }
 
-
-.container-tela form{
+.container-tela-cadastro .form-cad-lab{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
 }
 
-.container-tela form input{
+.container-tela-cadastro  input{
 
     height: 30px;
-    margin-bottom: 10px;
+    width:400px;
 }
 
-.form-btn{
+.container-tela-cadastro .form-btn button{
 
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    margin-left: 10px;
+    height: 100%;
+    
+}
+
+.input-add-sala{
+    width: 80%;
 }
 
 .todo-controle{
     display: flex;
     flex-direction: row;
-    background-color: indianred;
 }
 
 .todo-controle div{
@@ -38,22 +52,50 @@
 
 .row-todo{
     display: flex;
-    flex-direction: row;
-    background-color: royalblue;
+    width: 100%;
+    justify-content: space-between;
+    background-color: rgb(8, 79, 121);
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 
 .lista-salas{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
 }
 
 .lista-salas-todo{
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-top:10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .lista-salas-todo p{
     font-family: Verdana;
+}
+
+.btn-bottom{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end
+}
+
+.btn-bottom button{
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: crimson;
+    border-style: none;
+    margin-top: 10px;
+    transition: background-color ease 0.1s;
+
+}
+
+.btn-bottom button:hover{
+    background-color: red;
+    transition: background-color ease 0.5s;
 }

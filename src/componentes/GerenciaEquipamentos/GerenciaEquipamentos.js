@@ -10,27 +10,31 @@ function GerenciaEquipamentos(){
 
     useEffect(()=>{
 
-        listaEquipamentos = [{tombamento: 35163515,nome:'Estufa'},{tombamento: 654855,nome:'Estufa'}];
+        //listaEquipamentos = [{tombamento: 35163515,nome:'Estufa'},{tombamento: 654855,nome:'Estufa'}];
 
 
-    }, listaEquipamentos);
+    });
 
     function exibirModal(){
         setMostrarModal(true);
     }
 
+    function fecharModal(){
+        setMostrarModal(false);
+    }
+
     return(
-        <div className='container'>
+        <div className='container-equipamentos'>
             <div className='barra-operacoes'>
                 <button onClick={exibirModal}>Cadastrar equipamento</button>
 
             </div>
-            <div class='lista-equipamentos'>
+            <div className='lista-equipamentos'>
                 {listaEquipamentos.map((equipamento)=>
                 <li>{equipamento.nome}</li>)}
             </div>
             <div class='modal-cadastro-equip'>
-                {mostrarModal && <TelaCadastroEquipamento callback={setMostrarModal}/>}
+                {mostrarModal && <TelaCadastroEquipamento callback={fecharModal}/>}
             </div>
 
         </div>

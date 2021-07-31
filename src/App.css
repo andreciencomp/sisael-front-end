@@ -3,3 +3,18 @@ body{
   margin: 0;
 }
 
+.App{
+  display:flex;
+  flex-direction: column;
+  margin:0;
+  
+}
+
+.container-telas{
+  display: flex;
+  background-color: rgb(224, 221, 255);
+  width: 100%;
+  height: 100vh;
+  
+}
+

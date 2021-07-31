@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import './TelaCadastroEquipamento.css'
 function TelaCadastroEquipamento(props){
 
     const[tombamento, setTombamento] = useState(0);
     const[nome, setNome] = useState("");
+    const[itens, setItens] = useState([]);
+    const[itemId, setItemId] = useState(0);
+
+    
+    useEffect(()=>{
+        console.log(itens);
+    });
 
     function btnCancelar(e){
         e.preventDefault();
@@ -11,48 +18,108 @@ function TelaCadastroEquipamento(props){
     } 
 
     function btnCadastrar(e){
-        e.preventDefault();
-        setTombamento(e.target.tombamento.value);
-        setNome(e.target.nome.value)
-          
+        e.preventDefault();         
+        let valNome = nome;
         let opcoes = {
             method:'POST',
             headers:{'Content-Type': 'application/json'},
-            body: JSON.stringify({tombamento:e.target.tombamento.value, nome:e.target.nome.value})
+            body: JSON.stringify({nome:valNome})
         };
 
         fetch('http://localhost:8080/equipamentos/cadastrar'
         , opcoes)
         .then(response=> response.json())
-        .then(data => {
-            console.log(data);
+        .then(data => { //obtem o objeto do tipo do equipamento
+            itens.forEach(item => {
+                console.log("data id: " + data.id);
+                item.equipamento = {id:data.id};
+                cadastrarItemEquipamento(item);
+                
+            });
             alert("Cadastrado");
-        e.target.tombamento.value = ""});
-
-        
+            setItens([]);
+            
+        });
+   
     }
 
-    
+    async function cadastrarItemEquipamento(item){
+
+        let opcoes = {
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(item)
+        }
+
+        let resposta = await fetch('http://localhost:8080/itensequipamentos/cadastrar', opcoes);
+        if(await resposta.ok){
+
+            let dado = await resposta.json();
+            
+        }else{
+
+            alert("Um erro aconteceu");
+        }
 
 
+    }
+
+    function btnAdicionarItem(e){
+        e.preventDefault();
+        let keyv = itemId;
+        console.log(keyv);
+        itens.push({tombamento:null, key:itemId});
+        setItemId(itemId + 1);
+        setItens([...itens])
+    }
+
+    function btnRemoverItem(e){
+        e.preventDefault();
+        let idx = e.target.value;
+        itens.splice(idx, 1);
+        setItens([...itens]);
+    }
+
+    function onChangeNome(e){
+        setNome(e.target.value);
+    }
+
+    function onChangeItem(e){
+
+        console.log(e.target.id);
+        let idx = e.target.id;
+        itens[idx].tombamento = e.target.value;
+    }
 
     return(
-            <div className='modal-container'>
-                <div className='modal-background'></div>
-                <div className='modal-container-inner'>
-                    <form onSubmit={btnCadastrar}>
-                        <label htmlFor='tombamento'>Tombamento</label>
-                        <input name='tombamento' type='text'/>
-                        <label htmlFor='nome'>Nome</label>
-                        <input id='nome' type='text'></input>
-                        <div className='buttons-area'>
-                            <button type='submit' >Cadastrar</button>
-                            <button id='cancelar' onClick={btnCancelar}>Cancelar</button>
-                        </div>
-                    </form>
-                    
+            <div className='tela-cad-equip-container'>
+                <h1>Tipo do equipamento</h1>
+                <div className="entrada-nome">
+                    <label>Nome</label>
+                    <input type="text" placeholder="Nome do equipamento" onChange={onChangeNome}/>
+                </div>
+                
+                <div className="itens">
+                    <h5>Adicione equipamentos do tipo acima</h5>
+                    {itens.map((item,i)=>{
+                        return(
+                        <li className="item" key={item.key}>
+                            <input id={i}  type="text" placeholder="Tombamento" onChange={onChangeItem}/>
+                            <button className="btn-remover" onClick={btnRemoverItem} value={i}>remover</button>
+                        </li>);
+                    })}
 
                 </div>
+                <div className="btn-adicionar-item">
+                    <button onClick={btnAdicionarItem}>ADICIONAR ITEM</button>
+                </div>
+                <div className="botoes">
+                    <button className="btn-cancelar" onClick={props.callback}>cancelar</button>
+                    <button className="btn-cadastrar" onClick={btnCadastrar}>Cadastrar</button>
+                </div>
+
             </div>
             );
 

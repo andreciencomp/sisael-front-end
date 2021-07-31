@@ -17,6 +17,7 @@ function GerenciaLaboratorios(){
 
     }
 
+
     return (
         <div className="container-gerencia-lab">
             
@@ -24,8 +25,8 @@ function GerenciaLaboratorios(){
                 <button onClick={evtMostrarTelaCadastro}>Cadastrar Laboratorio</button>
             </div>
 
-            <div className="container-tela">
-                {telaCadLabVisivel && <TelaCadastroLaboratorio/>}
+            <div className="container-tela-ger-lab">
+                {telaCadLabVisivel && <TelaCadastroLaboratorio callBackJanela={evtMostrarTelaCadastro}/>}
             </div>
 
         </div>

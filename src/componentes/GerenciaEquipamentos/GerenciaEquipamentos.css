@@ -1,19 +1,33 @@
-.container{
+.container-equipamentos{
 
     display: flex;
+    flex-direction: column;
+
 
 }
 
 .barra-operacoes{
     display: flex;
     flex-direction: row;
-    background-color: coral;
+    width:100vw;
+    height: 50px;
+    background-color: rgb(200, 196, 255);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
 }
 
 .barra-container button{
 
         border-radius: 8px;
         border-style: none;
-        background-color: white;
+        background-color: rgb(51, 224, 45);
+
+}
+
+.modal-cadastro-equip{
+    display: flex;
+    justify-content: center ;
+    margin-top: 10px;
 
 }

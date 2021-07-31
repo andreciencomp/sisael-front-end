@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './TelaCadastroLaboratorio.css'
 import TelaCadastroSala from '../TelaCadastroSala/TelaCadastroSala'
 
-function TelaCadastroLaboratorio(){
+function TelaCadastroLaboratorio(props){
 
     const[sala, setSala] = useState(null);
     const[listaSala, setListaSala] = useState([]);
@@ -18,12 +18,11 @@ function TelaCadastroLaboratorio(){
        let idx = e.target.value;
        listaSala.splice(idx,1);
        setListaSala([...listaSala]);
-       console.log(listaSala);
     }
 
     async function evtCadastrarLaboratorio(e){
         e.preventDefault();
-        let lab = {nome:'Laboratorio', salas: listaSala};
+        let lab = {nome:e.target.nome.value, salas: listaSala};
         console.log("lista de labs: " + JSON.stringify(lab));
 
         let dados = {
@@ -37,7 +36,13 @@ function TelaCadastroLaboratorio(){
         };
 
         let resposta = await fetch("http://localhost:8080/laboratorios/cadastrar",dados);
-        
+        if(resposta.ok){
+            alert("Laboratório cadastrado com sucesso");
+            setListaSala([]);
+            
+        }else{
+
+        }
         console.log(await resposta.json());
 
         
@@ -46,41 +51,45 @@ function TelaCadastroLaboratorio(){
 
     function adicionarSala(e){
         e.preventDefault();
-        listaSala.push({nome: e.target.nome.value});
-        setSala({nome: e.target.nome.value});//e.target.nome.value});
+        listaSala.push({nome: e.target.nome.value, itemKey:listaSala.length});
+        setSala({nome: e.target.nome.value});
 
    }
 
     return(
-        <div className="container-tela">
-            <h1>Cadastro de Laboratório</h1>
-            <form onSubmit={evtCadastrarLaboratorio}>
-                <input type="text" placeholder="Nome do Laboratorio"/>
-                <div class="form-btn">
+        <div className="container-tela-cadastro">
+            <h1 className="titulo">Cadastro de Laboratório</h1>
+            <form className="form-cad-lab" onSubmit={evtCadastrarLaboratorio}>
+                <input name="nome" type="text" placeholder="Nome do Laboratorio"/>
+                <div className="form-btn">
                     <button type="submit">Cadastrar</button>
                 </div>
             </form>
             
             <div className="lista-salas">
-                <form className="todo-controle" onSubmit={adicionarSala}>
-                    <div>
+                <form className="form-cad-lab" onSubmit={adicionarSala}>
+                    
                         <input name="nome" type="text" placeholder="Adicionar nome da sala"/>
-                        <button type="submit">Adicionar Sala</button>
-                    </div>
+                        <div className="form-btn">
+                            <button type="submit">Adicionar sala</button>
+                        </div>
                 </form>
                 <div className="lista-salas-todo">
-                    <p1>Salas a serem adicionadas</p1>
+                    <p>Salas a serem adicionadas</p>
                     {listaSala.map((s,i)=>{
                     return (
-                    <li key={s.nome} className="row-todo">
+                    <li key={s.itemKey} className="row-todo">
                         <TelaCadastroSala sala={s}/>
                         <button value={i} onClick={removerSala}>Remover</button>
                     </li> );
                 })}
                 </div>
                 
-
             </div>
+            <div className="btn-bottom">
+            <button className="btn-fechar" onClick={props.callBackJanela}>Fechar</button>
+            </div>
+            
 
         </div>
     );
