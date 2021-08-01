@@ -1,5 +1,8 @@
-.busca{
+.usuario-reservar{
     text-align: center;
+}
+
+.busca{
     padding-top: 20px;
 }
 
@@ -11,4 +14,21 @@
 .busca .controle-busca button {
     width: 90px;
     height: 36px;
+}
+
+.list-busca{
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.list-busca table, th, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+#tr-topo{
+    background-color: lightseagreen;
 }
