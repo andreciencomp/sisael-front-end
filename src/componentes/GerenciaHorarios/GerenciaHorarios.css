@@ -20,6 +20,7 @@
     border-width: 2px;
     margin-top: 10px;
     width: 400px;
+    height: fit-content;
 }
 .container-horarios td{
     background-color: rgb(255, 255, 255);

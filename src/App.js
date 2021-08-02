@@ -9,6 +9,7 @@ import TelaGerencia from './componentes/BarraGerencia/BarraGerencia'
 import TelaLogin from './componentes/TelaLogin/TelaLogin';
 import BarraGerencia from './componentes/BarraGerencia/BarraGerencia';
 import BarraPesquisador from './componentes/BarraPesquisador/BarraPesquisador'
+import TelaCadastroReserva from './componentes/TelaCadastroReserva/TelaCadastroReserva';
 
 function App() {
 
@@ -16,14 +17,20 @@ function App() {
   const[logado, setLogado] = useState(false);
 
   
-  function loginSigaa(nome,senha){
+  async function loginSigaa(nome,senha){
 
-    let usuario ={};
-    usuario.nome = nome;
-    usuario.senha = senha;
-    usuario.role = "pesquisador";
+    let opcoes = {
+      method:'GET',
+      headers:{
+        'Content-Type':'application/json'
+      }
+    }
+    let response = await fetch('http://localhost:8080/pesquisadores/fulano',opcoes);
+    let usuario = await response.json();
+    console.log(usuario);
     setUsuario(usuario);
     setLogado(true);
+
 
 
   }
@@ -69,11 +76,11 @@ function App() {
             <Route path='/gerencia/horarios' exact>
               <GerenciaHorarios />
             </Route>
-            <Route path='/reservas'>
+            <Route path='/reservas' exact>
               <p>Não implementado ainda</p>
             </Route>
-            <Route path='/reservas/cadastrar'>
-              <p>Não implementado ainda</p>
+            <Route path='/reservas/cadastrar' exact>
+              <TelaCadastroReserva usuario={usuario}/>
             </Route>
           </Switch>
         </div>

@@ -1,0 +1,207 @@
+.tela-select-item-container{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+
+
+}
+
+.tela-select-item-container .sombra{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+
+
+}
+
+
+.tela-select-item-container .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    
+
+}
+
+
+.tela-select-item-container > .content > .form > .topo{
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    
+
+}
+
+.form > .topo >select{
+
+    height: 50px;
+    width: 50%;
+}
+
+.form > .topo >button{
+
+    height: 50px;
+    width: 30%;
+    margin-left: 10px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: teal;
+    color:white;
+    font-weight: bold;
+    font-size: large;
+}
+
+.form > .topo >button:hover{
+    transition: background-color ease 0.1s;
+    background-color: rgb(0, 172, 172);
+}
+
+.tela-select-item-container >.content >.form{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(228, 231, 255);
+    padding:30px;
+    width: 50%;
+    z-index: 10000;
+    
+
+
+}
+
+.tela-select-item-container >.content >.form >.tabelas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    height: fit-content;
+}
+
+.tela-select-item-container >.content >.form >.tabelas>.direito{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    min-height: 300px;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+}
+
+.tela-select-item-container >.content >.form >.tabelas>.esquerdo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 48%;
+    height: 300px;
+    margin-bottom: 10px;
+    background-color: white;
+
+}
+
+
+.tela-select-item-container >.content >.form >.tabelas>.direito{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 48%;
+    height: 300px;
+    margin-bottom: 10px;
+    background-color: white;
+
+}
+.tela-select-item-container >.content >.form >.tabelas>.esquerdo>.scroll-itens{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 250px;
+    background-color:rgb(255, 255, 255);
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.tela-select-item-container >.content >.form >.tabelas>.direito>.scroll-itens{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 250px;
+    background-color:rgb(255, 255, 255);
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.tela-select-item-container  button {
+    height: 40px;
+    border-style: none;
+    font-weight: bold;
+    font-size: 12pt;
+    color:white;
+}
+
+.btn-adicionar{
+    background-color: rgb(0, 129, 0);
+}
+
+.btn-remover{
+    background-color: red;
+}
+.tela-select-item-container >.content >.form >.tabelas>.esquerdo>.scroll-itens>.item-lista{
+    display: flex;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    background-color: rgba(61, 81, 168, 0.795);
+    margin-bottom: 4px;
+    font-size: small;
+    color:white;
+}
+
+.tela-select-item-container >.content >.form >.tabelas>.direito>.scroll-itens>.item-lista{
+    display: flex;
+    height: 30px;
+    background-color: rgba(61, 81, 168, 0.795);
+    margin-bottom: 4px;
+    align-items: center;
+    font-size: small;
+    color:white
+
+}
+
+.form>.barra-botoes{
+
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    align-items: center;
+}
+
+.form>.barra-botoes>.btn-concluido{
+
+    background-color: rgb(0, 255, 0);
+    color:white;
+    border-radius: 10px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.form>.barra-botoes>.btn-cancelar{
+
+    background-color: red;
+    color:white;
+    border-radius: 10px;
+    height: 90%;
+}
+
+
+
+
+
+
+

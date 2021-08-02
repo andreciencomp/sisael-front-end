@@ -1,0 +1,158 @@
+.container-tela-cad-reservas{
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.tela-cad-reservas{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: rgb(225, 228, 255);
+
+
+}
+
+.tela-cad-reservas .part1{
+    background-color: rgb(0, 114, 143);
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.area-equipamento{
+    display: flex;
+    width: 30%;
+    align-items: center;
+    margin-left: 10px;
+
+}
+
+.area-equipamento span{
+    color: white;
+}
+
+.area-equipamento>button{
+    transition: background-color ease 0.1s;
+    height: 100%;
+    margin-left: 10px;
+    background-color: yellow;
+    border-style: none;
+    border-radius: 10px;
+    color:rgb(0, 0, 0);
+    font-size: large;
+}
+
+.area-equipamento>button:hover{
+
+    background-color: rgb(255, 166, 0);
+}
+
+.area-data{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.area-data span{
+    color:white;
+}
+
+.tela-cad-reservas .select-equip{
+    width: 90%;
+    height: 100%;
+    margin-left: 10px;
+    font-size: 15pt;
+}
+
+.area-data  input{
+
+    height: 100%;
+    margin-left: 10px;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.tela-cad-reservas .part2{
+    background-color: rgb(233, 255, 240);
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tela-cad-reservas .lab-div{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(0, 114, 143);
+    overflow: visible;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.lab-div .nome-lab{
+
+    margin-left: 10px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.lista-salas{
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+
+}
+.sala{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:rgb(231, 255, 247)
+}
+
+.sala select{
+    height: 25px;
+    margin-bottom: 10px
+}
+
+.sala input{
+    margin-bottom: 10px;
+
+
+}
+
+.sala .nome-sala{
+    margin-bottom:5px;
+}
+
+.sala button{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12pt;
+    background-color: rgb(0, 61, 5);
+    height: 30px;
+    border-style: none;
+
+}
+
+.sala button:hover{
+    transition: background-color ease 0.2s;
+    background-color: yellowgreen;
+}
