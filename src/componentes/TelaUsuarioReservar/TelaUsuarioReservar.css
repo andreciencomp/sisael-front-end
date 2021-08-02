@@ -1,34 +1,62 @@
-.usuario-reservar{
+.modal-container{
+    display: flex;
+    height: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
     text-align: center;
 }
 
-.busca{
-    padding-top: 20px;
+.modal-background{
+    position:absolute;
+    background-color: rgb(0, 0, 0);
+    opacity: 30%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
 }
 
-.busca .controle-busca input {
-    width: 300px;
+
+.modal-container-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    position:absolute;
+    opacity: 100%;    
+    min-width: 500px;
+    max-height: 400px;
+    background-color: thistle;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+
+.modal-container form{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-container input{
+
     height: 30px;
 }
 
-.busca .controle-busca button {
-    width: 90px;
-    height: 36px;
-}
+.modal-container .buttons-area{
 
-.list-busca{
-    padding-top: 5%;
     display: flex;
-    justify-content: center;
-    align-items: center
+    justify-content: flex-end;
+
 }
 
-.list-busca table, th, td{
-    border: 2px solid black;
-    border-collapse: collapse;
-    padding: 10px;
+.modal-container button{
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
-#tr-topo{
-    background-color: lightseagreen;
+.modal-container select{
+
+    height: 15px;
 }

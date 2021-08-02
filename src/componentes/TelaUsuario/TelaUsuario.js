@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
-import TelaUsuarioReservar from '../TelaUsuarioReservar/TelaUsuarioReservar';
+import UsuarioReservar from '../UsuarioReservar/UsuarioReservar';
 
 function TelaUsuario(){
 
@@ -20,7 +20,7 @@ function TelaUsuario(){
         
             <Switch>
                 <Route path='/usuario/reservar'>
-                    <TelaUsuarioReservar />
+                    <UsuarioReservar />
                 </Route>
                 <Route path='/usuario/minhas_reservas'>
                     

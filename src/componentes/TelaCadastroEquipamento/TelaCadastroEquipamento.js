@@ -23,7 +23,7 @@ function TelaCadastroEquipamento(props) {
             }).catch(error => {
                 console.log(error);
             })
-
+            alert("Cadastro realizado com sucesso!");
             props.callback(false);
         }
 
