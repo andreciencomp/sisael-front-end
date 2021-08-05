@@ -3,93 +3,87 @@ import React, { useEffect, useState } from 'react'
 import './TelaCadastroLaboratorio.css'
 import TelaCadastroSala from '../TelaCadastroSala/TelaCadastroSala'
 
-function TelaCadastroLaboratorio(props){
+function TelaCadastroLaboratorio(props) {
 
-    const[sala, setSala] = useState(null);
-    const[listaSala, setListaSala] = useState([]);
+    const [sala, setSala] = useState(null);
+    const [listaSala, setListaSala] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        
+
     });
 
-    function removerSala(e){
-       e.preventDefault();
-       let idx = e.target.value;
-       listaSala.splice(idx,1);
-       setListaSala([...listaSala]);
+    function removerSala(e) {
+        e.preventDefault();
+        let idx = e.target.value;
+        listaSala.splice(idx, 1);
+        setListaSala([...listaSala]);
     }
 
-    async function evtCadastrarLaboratorio(e){
+    async function evtCadastrarLaboratorio(e) {
         e.preventDefault();
-        let lab = {nome:e.target.nome.value, salas: listaSala};
+        let lab = { nome: e.target.nome.value, salas: listaSala };
         console.log("lista de labs: " + JSON.stringify(lab));
 
         let dados = {
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
 
             },
-            body:JSON.stringify(lab)
+            body: JSON.stringify(lab)
 
         };
 
-        let resposta = await fetch("http://localhost:8080/laboratorios/cadastrar",dados);
-        if(resposta.ok){
+        let resposta = await fetch("http://localhost:8080/laboratorios/cadastrar", dados);
+        if (resposta.ok) {
             alert("Laboratório cadastrado com sucesso");
             setListaSala([]);
-            
-        }else{
+
+        } else {
 
         }
         console.log(await resposta.json());
 
-        
+
 
     }
 
-    function adicionarSala(e){
+    function adicionarSala(e) {
         e.preventDefault();
-        listaSala.push({nome: e.target.nome.value, itemKey:listaSala.length});
-        setSala({nome: e.target.nome.value});
+        listaSala.push({ nome: e.target.nome.value, itemKey: listaSala.length });
+        setSala({ nome: e.target.nome.value });
 
-   }
+    }
 
-    return(
+    return (
         <div className="container-tela-cadastro">
             <h1 className="titulo">Cadastro de Laboratório</h1>
             <form className="form-cad-lab" onSubmit={evtCadastrarLaboratorio}>
-                <input name="nome" type="text" placeholder="Nome do Laboratorio"/>
-                <div className="form-btn">
-                    <button type="submit">Cadastrar</button>
-                </div>
+                <input name="nome" type="text" placeholder="Nome do Laboratorio" />
+                <button type="submit">Cadastrar Laboratório</button>
             </form>
-            
-            <div className="lista-salas">
-                <form className="form-cad-lab" onSubmit={adicionarSala}>
-                    
-                        <input name="nome" type="text" placeholder="Adicionar nome da sala"/>
-                        <div className="form-btn">
-                            <button type="submit">Adicionar sala</button>
-                        </div>
-                </form>
-                <div className="lista-salas-todo">
-                    <p>Salas a serem adicionadas</p>
-                    {listaSala.map((s,i)=>{
+
+            <form className="form-nome-sala" onSubmit={adicionarSala}>
+                <input name="nome" type="text" placeholder="Adicionar nome da sala" />
+                <button type="submit">Adicionar sala</button>
+            </form>
+
+
+            <div className="lista-salas-todo">
+                <span>Salas a serem adicionadas</span>
+                {listaSala.map((s, i) => {
                     return (
-                    <li key={s.itemKey} className="row-todo">
-                        <TelaCadastroSala sala={s}/>
-                        <button value={i} onClick={removerSala}>Remover</button>
-                    </li> );
+                        <li key={s.itemKey} className="row-todo">
+                            <TelaCadastroSala sala={s} />
+                            <button value={i} onClick={removerSala}>Remover</button>
+                        </li>);
                 })}
-                </div>
-                
             </div>
             <div className="btn-bottom">
-            <button className="btn-fechar" onClick={props.callBackJanela}>Fechar</button>
+                <button className="btn-fechar" onClick={props.callBackJanela}>Fechar</button>
             </div>
-            
+
 
         </div>
     );

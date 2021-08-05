@@ -13,7 +13,43 @@
 
 }
 
-.container-tela-cadastro .form-cad-lab{
+.form-cad-lab>button{
+
+    color:white;
+    background-color: green;
+    border-style: none;
+    border-radius: 10px;
+    
+
+}
+
+.form-cad-lab>button:hover{
+    background-color: rgb(0, 211, 0);
+
+}
+
+.form-nome-sala>button{
+    color:white;
+    background-color: rgb(0, 105, 105);
+    border-style: none;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right:20px;
+}
+
+.form-nome-sala>button:hover{
+    background-color: rgb(0, 165, 165);
+}
+
+.form-nome-sala{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container-tela-cadastro>.form-cad-lab{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -29,9 +65,7 @@
 .container-tela-cadastro .form-btn button{
 
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    margin-left: 10px;
     height: 100%;
     
 }
@@ -55,27 +89,20 @@
     width: 100%;
     justify-content: space-between;
     background-color: rgb(8, 79, 121);
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 
-.lista-salas{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-}
+
 
 .lista-salas-todo{
     display: flex;
     flex-direction: column;
-    margin-top:10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.lista-salas-todo p{
-    font-family: Verdana;
+    margin-top: 10px;
 }
 
 .btn-bottom{

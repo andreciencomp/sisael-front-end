@@ -121,12 +121,7 @@ function TelaCadastroReserva(props) {
             console.log(JSON.stringify(dado));
             console.log(idxSala);
             salvarReserva(dado);
-
-
         }
-
-        
-
     }
 
 
