@@ -47,7 +47,7 @@
     width: 50%;
 }
 
-tela-select-item-container .form > .topo >button{
+.tela-select-item-container .form > .topo >button{
 
     height: 50px;
     width: 30%;
@@ -60,7 +60,7 @@ tela-select-item-container .form > .topo >button{
     font-size: large;
 }
 
-tela-select-item-container .form > .topo >button:hover{
+.tela-select-item-container .form > .topo >button:hover{
     transition: background-color ease 0.1s;
     background-color: rgb(0, 172, 172);
 }
@@ -174,7 +174,7 @@ tela-select-item-container .form > .topo >button:hover{
 
 }
 
-tela-select-item-container .form>.barra-botoes{
+.tela-select-item-container .form>.barra-botoes{
 
     display: flex;
     justify-content: flex-end;
@@ -182,7 +182,7 @@ tela-select-item-container .form>.barra-botoes{
     align-items: center;
 }
 
-tela-select-item-container .form>.barra-botoes>.btn-concluido{
+.tela-select-item-container .form>.barra-botoes>.btn-concluido{
 
     background-color: rgb(0, 255, 0);
     color:white;
@@ -191,7 +191,7 @@ tela-select-item-container .form>.barra-botoes>.btn-concluido{
     margin-left: 10px;
 }
 
-tela-select-item-container .form>.barra-botoes>.btn-cancelar{
+.tela-select-item-container .form>.barra-botoes>.btn-cancelar{
 
     background-color: red;
     color:white;

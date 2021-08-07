@@ -31,10 +31,17 @@ function App() {
       }
     }
     let response = await fetch('http://localhost:8080/pesquisadores/fulano',opcoes);
-    let usuario = await response.json();
-    console.log(usuario);
-    setUsuario(usuario);
-    setLogado(true);
+    if(response.ok){
+      console.log(response);
+      let usuario = await response.json();
+      console.log(usuario);
+      setUsuario(usuario);
+      setLogado(true);
+    }else{
+
+      alert("Falha de Login");
+    }
+    
 
 
 
