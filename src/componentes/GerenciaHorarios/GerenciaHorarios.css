@@ -29,6 +29,7 @@
     text-align: center;
 }
 
+
 .container-horarios .btn-cad{
     display: flex;
     height: 100%;
@@ -36,6 +37,18 @@
     justify-content: center;
     align-items: center;
 
+}
+
+.container-horarios .btn-cad>button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color:white;
+    background-color: green;
+    border: none;
+}
+
+.container-horarios .btn-cad>button:hover{
+    background-color: rgb(0, 185, 0);
 }
 
 .container-horarios .btn-cad-td {
@@ -49,7 +62,6 @@
 }
 .container-horarios .btn-remover{
     display: flex;
-    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;

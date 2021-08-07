@@ -41,13 +41,13 @@
 
 }
 
-.form > .topo >select{
+.tela-select-item-container .form > .topo >select{
 
     height: 50px;
     width: 50%;
 }
 
-.form > .topo >button{
+tela-select-item-container .form > .topo >button{
 
     height: 50px;
     width: 30%;
@@ -60,7 +60,7 @@
     font-size: large;
 }
 
-.form > .topo >button:hover{
+tela-select-item-container .form > .topo >button:hover{
     transition: background-color ease 0.1s;
     background-color: rgb(0, 172, 172);
 }
@@ -145,11 +145,11 @@
     color:white;
 }
 
-.btn-adicionar{
+.tela-select-item-container .btn-adicionar{
     background-color: rgb(0, 129, 0);
 }
 
-.btn-remover{
+.tela-select-item-container .btn-remover{
     background-color: red;
 }
 .tela-select-item-container >.content >.form >.tabelas>.esquerdo>.scroll-itens>.item-lista{
@@ -174,7 +174,7 @@
 
 }
 
-.form>.barra-botoes{
+tela-select-item-container .form>.barra-botoes{
 
     display: flex;
     justify-content: flex-end;
@@ -182,7 +182,7 @@
     align-items: center;
 }
 
-.form>.barra-botoes>.btn-concluido{
+tela-select-item-container .form>.barra-botoes>.btn-concluido{
 
     background-color: rgb(0, 255, 0);
     color:white;
@@ -191,7 +191,7 @@
     margin-left: 10px;
 }
 
-.form>.barra-botoes>.btn-cancelar{
+tela-select-item-container .form>.barra-botoes>.btn-cancelar{
 
     background-color: red;
     color:white;

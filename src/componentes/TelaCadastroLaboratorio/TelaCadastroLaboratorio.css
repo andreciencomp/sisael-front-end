@@ -7,7 +7,7 @@
     border-radius: 10px;
     border-color: teal;
     background-color: rgb(215, 225, 255);
-    
+    max-width: 550px;
     padding: 10px;
 
 
@@ -111,7 +111,11 @@
     justify-content: flex-end
 }
 
-.btn-bottom button{
+.btn-bottom a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     width: 100px;
     height: 30px;
     color: white;
@@ -119,6 +123,7 @@
     border-style: none;
     margin-top: 10px;
     transition: background-color ease 0.1s;
+    border-radius: 10px;
 
 }
 

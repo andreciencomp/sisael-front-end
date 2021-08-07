@@ -1,10 +1,10 @@
 
-.h1{
+.tela-cadastro-sala .h1{
 
     align-self: center;
 }
 
-.form-sala{
+.tela-cadastro-sala .form-sala{
 
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@
 
 }
 
-.form-sala button{
+.tela-cadastro-sala .form-sala button{
 
     background-color: red;
     color:white;

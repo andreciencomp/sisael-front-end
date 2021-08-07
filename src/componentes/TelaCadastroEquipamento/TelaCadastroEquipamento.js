@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react'
+import {Link} from 'react-router-dom';
 import './TelaCadastroEquipamento.css'
 function TelaCadastroEquipamento(props){
 
@@ -86,6 +87,7 @@ function TelaCadastroEquipamento(props){
         setNome(e.target.value);
     }
 
+
     function onChangeItem(e){
 
         console.log(e.target.id);
@@ -116,7 +118,7 @@ function TelaCadastroEquipamento(props){
                     <button onClick={btnAdicionarItem}>ADICIONAR ITEM</button>
                 </div>
                 <div className="botoes">
-                    <button className="btn-cancelar" onClick={props.callback}>cancelar</button>
+                    <Link className="btn-cancelar" to='/gerencia/equipamentos'>cancelar</Link>
                     <button className="btn-cadastrar" onClick={btnCadastrar}>Cadastrar</button>
                 </div>
 

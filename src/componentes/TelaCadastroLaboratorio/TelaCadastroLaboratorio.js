@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import './TelaCadastroLaboratorio.css'
 import TelaCadastroSala from '../TelaCadastroSala/TelaCadastroSala'
+import { Link } from 'react-router-dom';
 
 function TelaCadastroLaboratorio(props) {
 
@@ -81,7 +82,7 @@ function TelaCadastroLaboratorio(props) {
                 })}
             </div>
             <div className="btn-bottom">
-                <button className="btn-fechar" onClick={props.callBackJanela}>Fechar</button>
+                <Link className="btn-fechar" to='/gerencia/laboratorios'>Fechar</Link>
             </div>
 
 

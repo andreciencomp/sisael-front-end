@@ -6,7 +6,7 @@
 
 }
 
-.barra-operacoes{
+.container-equipamentos .barra-operacoes{
     display: flex;
     flex-direction: row;
     width:100vw;
@@ -17,7 +17,7 @@
     padding-left: 5px;
 }
 
-.barra-container button{
+.container-equipamentos .barra-container button{
 
         border-radius: 8px;
         border-style: none;
@@ -25,7 +25,7 @@
 
 }
 
-.modal-cadastro-equip{
+.container-equipamentos .modal-cadastro-equip{
     display: flex;
     justify-content: center ;
     margin-top: 10px;

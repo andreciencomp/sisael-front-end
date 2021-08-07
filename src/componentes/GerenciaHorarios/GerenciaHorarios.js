@@ -10,15 +10,23 @@ function GerenciaHorarios() {
     const [horaFinalSelecionada, setHoraFinalSelecionada] = useState(0);
     const [minutoFinalSelecionado, setMinutoFinalSelecionado] = useState(0);
 
+
     for (let i = 0; i < 60; i++) {
         if ((i % 5) === 0) {
             minutos.push(i);
         }
 
     }
-    const [horarios, setHorarios] = useState([]);
+    const [horariosCarregados, setHorariosCarregados] = useState([]);
+    
+
 
     useEffect(() => {
+        carregarHorarios();
+    },[]);
+
+    async function carregarHorarios(){
+
         let options = {
             method:'GET',
             headers:{
@@ -26,13 +34,15 @@ function GerenciaHorarios() {
             }
         };
 
-        fetch('http://localhost:8080/horarios', options).
-        then(dados=> dados.json()).
-        then(resposta=>setHorarios(resposta));
-    });
+        let resposta = await fetch('http://localhost:8080/horarios',options);
+        let dado = await resposta.json();
+        setHorariosCarregados(dado);
+
+    }
+
+    
 
     async function evtAdicionarHorario(e) {
-        console.log("here");
         let strHoraInicial = "";
         let strMinutoInicial = "";
         let strHoraFinal = "";
@@ -73,8 +83,8 @@ function GerenciaHorarios() {
         let resposta = await fetch('http://localhost:8080/horarios/cadastrar', options);
         if(resposta.ok){
             let dado = await resposta.json();
-            horarios.push(dado);
-            setHorarios([...horarios]);
+            carregarHorarios();
+            setHorariosCarregados([...horariosCarregados]);
         }else{
             alert("Erro ao cadastrar o horario");
         }
@@ -96,7 +106,7 @@ function GerenciaHorarios() {
         setMinutoFinalSelecionado(e.target.value);
     }
 
-    function evtRemoverHorario(e){
+    async function evtRemoverHorario(e){
 
         let id = e.target.value;
         let options={
@@ -105,9 +115,14 @@ function GerenciaHorarios() {
                 'Content-Type':'application/json'
             }
         };
-        fetch('http://localhost:8080/horarios/deletar/'+id, options)
-        .then(resposta=>resposta.json())
-        .then(dados=>setHorarios(horarios));
+        let resposta = await fetch('http://localhost:8080/horarios/deletar/'+id, options);
+        if(resposta.ok){
+            setHorariosCarregados([...horariosCarregados]);
+            carregarHorarios();
+        }else{
+            alert("Não foi possível deletar este horário");
+        }
+
 
     }
 
@@ -170,12 +185,12 @@ function GerenciaHorarios() {
                     <th>Hora final</th>
                 </tr>
 
-                {horarios.map((horario, i) => {
+                {horariosCarregados.map((horario, i) => {
                     return (
                         <tr>
                             <td>{horario.horaInicial}</td>
                             <td>{horario.horaFinal}</td>
-                            <td className="btn-remover">
+                            <td className='td-remover' className="btn-remover">
                                 <button value={horario.id} onClick={evtRemoverHorario}>Remover</button>
                             </td>
 

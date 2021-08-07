@@ -7,7 +7,7 @@
 
 }
 
-.tela-cad-reservas{
+.container-tela-cad-reservas .tela-cad-reservas{
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -16,7 +16,7 @@
 
 }
 
-.tela-cad-reservas .part1{
+.container-tela-cad-reservas .tela-cad-reservas .part1{
     background-color: rgb(0, 114, 143);
     display: flex;
     flex-direction: row;
@@ -27,7 +27,7 @@
     padding-bottom: 10px;
 }
 
-.area-equipamento{
+.container-tela-cad-reservas .area-equipamento{
     display: flex;
     width: 30%;
     align-items: center;
@@ -35,11 +35,11 @@
 
 }
 
-.area-equipamento span{
+.container-tela-cad-reservas .area-equipamento span{
     color: white;
 }
 
-.area-equipamento>button{
+.container-tela-cad-reservas .area-equipamento>button{
     transition: background-color ease 0.1s;
     height: 100%;
     margin-left: 10px;
@@ -50,30 +50,30 @@
     font-size: large;
 }
 
-.area-equipamento>button:hover{
+.container-tela-cad-reservas .area-equipamento>button:hover{
 
     background-color: rgb(255, 166, 0);
 }
 
-.area-data{
+.container-tela-cad-reservas .area-data{
     display: flex;
     justify-content: start;
     align-items: center;
     margin-left: 50px;
 }
 
-.area-data span{
+.container-tela-cad-reservas .area-data span{
     color:white;
 }
 
-.tela-cad-reservas .select-equip{
+.container-tela-cad-reservas .tela-cad-reservas .select-equip{
     width: 90%;
     height: 100%;
     margin-left: 10px;
     font-size: 15pt;
 }
 
-.area-data  input{
+.container-tela-cad-reservas .area-data  input{
 
     height: 100%;
     margin-left: 10px;
@@ -81,7 +81,7 @@
     font-weight: bold;
 }
 
-.tela-cad-reservas .part2{
+.container-tela-cad-reservas .tela-cad-reservas .part2{
     background-color: rgb(233, 255, 240);
     margin-top: 5px;
     display: flex;
@@ -89,7 +89,7 @@
     width: 100%;
 }
 
-.tela-cad-reservas .lab-div{
+.container-tela-cad-reservas .tela-cad-reservas .lab-div{
     margin-top: 15px;
     display: flex;
     flex-direction: column;
@@ -103,14 +103,14 @@
     padding-bottom: 10px;
 }
 
-.lab-div .nome-lab{
+.container-tela-cad-reservas .lab-div .nome-lab{
 
     margin-left: 10px;
     color: white;
     margin-bottom: 5px;
 }
 
-.lista-salas{
+.container-tela-cad-reservas .lista-salas{
     margin: 0px;
     display: flex;
     flex-direction: row;
@@ -118,7 +118,7 @@
 
 
 }
-.sala{
+.container-tela-cad-reservas .sala{
     display: flex;
     flex-direction: column;
     margin-left: 10px;
@@ -127,22 +127,22 @@
     background-color:rgb(231, 255, 247)
 }
 
-.sala select{
+.container-tela-cad-reservas .sala select{
     height: 25px;
     margin-bottom: 10px
 }
 
-.sala input{
+.container-tela-cad-reservas .sala input{
     margin-bottom: 10px;
 
 
 }
 
-.sala .nome-sala{
+.container-tela-cad-reservas .sala .nome-sala{
     margin-bottom:5px;
 }
 
-.sala button{
+.container-tela-cad-reservas .sala button{
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 12pt;
@@ -152,7 +152,7 @@
 
 }
 
-.sala button:hover{
+.container-tela-cad-reservas .sala button:hover{
     transition: background-color ease 0.2s;
     background-color: yellowgreen;
 }

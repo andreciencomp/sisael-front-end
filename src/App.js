@@ -10,6 +10,11 @@ import TelaLogin from './componentes/TelaLogin/TelaLogin';
 import BarraGerencia from './componentes/BarraGerencia/BarraGerencia';
 import BarraPesquisador from './componentes/BarraPesquisador/BarraPesquisador'
 import TelaCadastroReserva from './componentes/TelaCadastroReserva/TelaCadastroReserva';
+import BarraAcaoEquipamento from './componentes/BarraAcaoEquipamento/BarraAcaoEquipamento';
+import TelaCadastroEquipamento from './componentes/TelaCadastroEquipamento/TelaCadastroEquipamento';
+import TelaListaLaboratorios from './componentes/TelaListaLaboratorios/TelaListaLaboratorios';
+import BarraAcaoLaboratorio from './componentes/BarraAcaoLaboratorios/BarraAcaoLaboratorio';
+import TelaCadastroLaboratorio from './componentes/TelaCadastroLaboratorio/TelaCadastroLaboratorio';
 
 function App() {
 
@@ -68,10 +73,29 @@ function App() {
 
             </Route>
             <Route path='/gerencia/equipamentos' exact>
-              <GerenciaEquipamentos />
+              <BarraAcaoEquipamento/>
+            </Route>
+            <Route path='/gerencia/equipamentos/cadastro' exact>
+              <div className="tela-container">
+                <BarraAcaoEquipamento/>
+                <TelaCadastroEquipamento/>
+              </div>
+              
+            </Route>
+            <Route path='/gerencia/laboratoooooorios' exact>
+              <GerenciaLaboratorios />
             </Route>
             <Route path='/gerencia/laboratorios' exact>
-              <GerenciaLaboratorios />
+                <div className='tela-container'>
+                  <BarraAcaoLaboratorio/>
+                  <TelaListaLaboratorios/>
+                </div>
+            </Route>
+            <Route path='/gerencia/laboratorios/cadastro' exact>
+                <div className='tela-container'>
+                  <BarraAcaoLaboratorio/>
+                  <TelaCadastroLaboratorio/>
+                </div>
             </Route>
             <Route path='/gerencia/horarios' exact>
               <GerenciaHorarios />

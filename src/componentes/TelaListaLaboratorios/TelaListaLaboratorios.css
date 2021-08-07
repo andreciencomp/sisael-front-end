@@ -1,0 +1,123 @@
+.tela-lista-lab{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 4px;
+
+}
+
+.tela-lista-lab .item-lab{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border:1px solid green;
+    margin-bottom: 10px;
+}
+
+.tela-lista-lab .btn-tab{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    justify-content: flex-end;
+}
+
+.tela-lista-lab .lista-salas{
+    display: flex;
+    background-color: rgb(0, 66, 87);
+    padding-top: 10px;
+    padding-bottom:10px;
+    padding-left: 10px;
+}
+
+.tela-lista-lab .topo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding-left: 10px;
+}
+
+.tela-lista-lab .btn-agendamentos{
+    display: flex;
+    text-decoration: none;
+    margin-top: 4px;
+    background-color: rgb(109, 143, 255);
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tela-lista-lab .btn-alterar-sala{
+    display: flex;
+    text-decoration: none;
+    margin-top: 4px;
+    background-color: rgb(43, 53, 0);
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+    color: white;
+}
+
+
+
+.tela-lista-lab .btn-alterar-lab:any-link{
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+
+}
+
+.tela-lista-lab .btn-excluir-lab:any-link{
+    display: flex;
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+    justify-content: center;
+    align-items: center;
+    margin-left:8px;
+    margin-right: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+
+
+
+.tela-lista-lab a{
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.tela-lista-lab a:visited{
+    color:rgb(255, 255, 255);
+}
+
+.tela-lista-lab a:link{
+    color:rgb(255, 255, 255);
+}
+
+.tela-lista-lab .nome-lab{
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+.tela-lista-lab .item-sala{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-right: 8px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px;
+}
+
+.tela-lista-lab .item-sala>small{
+    margin-bottom: 10px;
+}
+
