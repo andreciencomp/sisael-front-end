@@ -41,12 +41,13 @@ function TelaCadastroReserva(props) {
         let opcoes = {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
             },
 
         }
         fetch('http://localhost:8080/equipamentos/listar', opcoes)
-            .then(response => response.json())
+        .then(response => response.json())
             .then(data => {
                 setEquipamentos(data);
             })
@@ -57,16 +58,16 @@ function TelaCadastroReserva(props) {
         let opcoes = {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
-            },
+                'Content-Type': 'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
+            }
 
         }
-
         fetch('http://localhost:8080/horarios', opcoes)
             .then(response => response.json())
             .then(data => {
                 setHorarios(data);
-                console.log(data);
+                //console.log(data);
             })
     }
 
@@ -75,7 +76,8 @@ function TelaCadastroReserva(props) {
         let opcoes = {
             method:'POST',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
             },
             body:JSON.stringify(reserva)
         }
@@ -92,7 +94,16 @@ function TelaCadastroReserva(props) {
 
     async function carregarLaboratorios() {
 
-        let resposta = await fetch('http://localhost:8080/laboratorios');
+        console.log('basicss' + localStorage.getItem('basic_auth'));
+        let opcoes = {
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
+            }
+        }
+
+        let resposta = await fetch('http://localhost:8080/laboratorios',opcoes);
         let dados = await resposta.json();
         setLaboratorios(dados);
 
@@ -111,7 +122,7 @@ function TelaCadastroReserva(props) {
             alert("Você não selecionou os equipamentos para fazer a reserva");
         }else{
             let dado = {
-                pesquisador:{id:props.usuario.id },
+                pesquisador:{id:1}, //!!!!! MUDAR AQUI DEPOIS !!!!!!!
                 laboratorio: laboratorios[idxLab],
                 sala:laboratorios[idxLab].salas[idxSala],
                 equipamentos:itensEscolhidos,

@@ -21,39 +21,39 @@ function App() {
   const[usuario, setUsuario] = useState(null);
   const[logado, setLogado] = useState(false);
 
-  
-  async function loginSigaa(nome,senha){
+  async function fazerLogin(nome, senha){
 
+    let nomeUsuarioSenha64 = btoa(nome+':'+senha);
     let opcoes = {
       method:'GET',
       headers:{
-        'Content-Type':'application/json'
+        'Content-Type':'application/json',
+        'Authorization' : 'Basic '+ nomeUsuarioSenha64
       }
-    }
-    let response = await fetch('http://localhost:8080/pesquisadores/fulano',opcoes);
+    };
+    let response = await fetch('http://localhost:8080/auth/login',opcoes);
     if(response.ok){
       console.log(response);
       let usuario = await response.json();
       console.log(usuario);
       setUsuario(usuario);
       setLogado(true);
+      localStorage.setItem('basic_auth','Basic '+ nomeUsuarioSenha64);
+      localStorage.setItem('usuario',usuario);
+
     }else{
 
-      alert("Falha de Login");
+      switch(response.status){
+        case 401:
+        case 403:
+          alert("Usuário não autorizado");
+          break;
+        default:
+          alert("Um erro aconteceu");
+
+
+      }
     }
-    
-
-
-
-  }
-
-  function loginGerencia(nome, senha){
-    let usuario ={};
-    usuario.nome = nome;
-    usuario.senha = senha;
-    usuario.role = "gerente";
-    setUsuario(usuario);
-    setLogado(true);
 
   }
 
@@ -68,7 +68,7 @@ function App() {
       <BrowserRouter>
         <div>
           {usuario!=null && usuario.role=='gerente' && <BarraGerencia callbackLogout={logout}/>}
-          {usuario!=null && usuario.role=='pesquisador' && <BarraPesquisador/>}
+          {usuario!=null && usuario.role=='pesquisador' && <BarraPesquisador callbackLogout={logout}/>}
           {usuario == null && <Redirect to="/"/>}
         </div>
         <div className="container-telas">
@@ -76,7 +76,7 @@ function App() {
             <Route path="/" exact>
               {logado && usuario.role=='gerente' && <Redirect to="/gerencia/equipamentos"/>}
               {logado && usuario.role=='pesquisador' && <Redirect to="/reservas"/>}
-             <TelaLogin callbackLoginSigaa={loginSigaa} callbackLoginGerencia={loginGerencia}/>
+             <TelaLogin callbackLogin={fazerLogin}/>
 
             </Route>
             <Route path='/gerencia/equipamentos' exact>
@@ -88,9 +88,6 @@ function App() {
                 <TelaCadastroEquipamento/>
               </div>
               
-            </Route>
-            <Route path='/gerencia/laboratoooooorios' exact>
-              <GerenciaLaboratorios />
             </Route>
             <Route path='/gerencia/laboratorios' exact>
                 <div className='tela-container'>

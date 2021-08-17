@@ -20,7 +20,8 @@ function TelaListaLaboratorios() {
         let opcoes = {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
             }
         }
         let resposta = await fetch('http://localhost:8080/laboratorios', opcoes);

@@ -30,6 +30,7 @@ function TelaCadastroLaboratorio(props) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
 
             },
             body: JSON.stringify(lab)

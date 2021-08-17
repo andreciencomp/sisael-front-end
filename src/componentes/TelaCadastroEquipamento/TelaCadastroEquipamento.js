@@ -23,7 +23,10 @@ function TelaCadastroEquipamento(props){
         let valNome = nome;
         let opcoes = {
             method:'POST',
-            headers:{'Content-Type': 'application/json'},
+            headers:{
+                'Content-Type': 'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
+            },
             body: JSON.stringify({nome:valNome})
         };
 
@@ -49,19 +52,20 @@ function TelaCadastroEquipamento(props){
         let opcoes = {
             method:'POST',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
             },
             body: JSON.stringify(item)
         }
 
         let resposta = await fetch('http://localhost:8080/itensequipamentos/cadastrar', opcoes);
-        if(await resposta.ok){
+        if(resposta.ok){
 
             let dado = await resposta.json();
             
         }else{
 
-            alert("Um erro aconteceu");
+            alert("Um erro aconteceu\n "  + resposta.status);
         }
 
 

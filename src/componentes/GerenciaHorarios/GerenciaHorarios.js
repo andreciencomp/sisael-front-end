@@ -30,7 +30,8 @@ function GerenciaHorarios() {
         let options = {
             method:'GET',
             headers:{
-                'Content-type':'application/json'
+                'Content-type':'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
             }
         };
 
@@ -76,7 +77,8 @@ function GerenciaHorarios() {
         let options={
             method:'POST',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
             },
             body:JSON.stringify(hora)
         };
@@ -86,7 +88,7 @@ function GerenciaHorarios() {
             carregarHorarios();
             setHorariosCarregados([...horariosCarregados]);
         }else{
-            alert("Erro ao cadastrar o horario");
+            alert("Erro ao cadastrar o hdorario\nStatus: " + resposta.status);
         }
     }
 
@@ -112,7 +114,8 @@ function GerenciaHorarios() {
         let options={
             method:'DELETE',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
             }
         };
         let resposta = await fetch('http://localhost:8080/horarios/deletar/'+id, options);

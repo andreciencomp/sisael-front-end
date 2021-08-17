@@ -44,7 +44,7 @@
 .tela-select-item-container .form > .topo >select{
 
     height: 50px;
-    width: 50%;
+    width: 100%;
 }
 
 .tela-select-item-container .form > .topo >button{

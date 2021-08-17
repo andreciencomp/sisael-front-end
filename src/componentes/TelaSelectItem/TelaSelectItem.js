@@ -10,34 +10,37 @@ function TelaSelectItem(props) {
     useEffect(() => {
 
         carregarEquipamentos();
-        console.log('effect');
 
     }, []);
 
-    function carregarEquipamentos() {
+    useEffect(()=>{
+        carregarItensEquipamentos();
+    },[idEquipamento]);
+
+    async function carregarEquipamentos() {
         let opcoes = {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
             },
 
         }
-        fetch('http://localhost:8080/equipamentos/listar', opcoes)
-            .then(response => response.json())
-            .then(data => {
-                setEquipamentos(data);
-            })
-
+        let response = await fetch('http://localhost:8080/equipamentos/listar', opcoes);
+        let dados = await response.json();
+        setEquipamentos(dados);
     }
 
     function carregarItensEquipamentos() {
         let opcoes = {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization':localStorage.getItem('basic_auth')
             },
 
-        }
+        };
+
         fetch('http://localhost:8080/itensequipamentos/' + idEquipamento, opcoes)
             .then(response => response.json())
             .then(data => {
@@ -46,8 +49,6 @@ function TelaSelectItem(props) {
             })
 
     }
-
-
 
     function evtSelecionarItens(e) {
         e.preventDefault();
@@ -73,7 +74,6 @@ function TelaSelectItem(props) {
         }
 
     }
-
 
     function contemItemEquipamento(elemento, lista) {
         let temItem = false;
@@ -141,9 +141,14 @@ function TelaSelectItem(props) {
 
     function btnBuscarItens(e) {
         e.preventDefault();
+        console.log("fui clicado: " + idEquipamento);
         if (idEquipamento == 0) {
-            setIdEquipamento(equipamentos[0].id);
-        }
+            let x = equipamentos[0].id;
+            console.log(x);
+            setIdEquipamento(x);
+            console.log("fui mudado: " +idEquipamento);
+        } 
+
         carregarItensEquipamentos();
 
 
@@ -167,7 +172,7 @@ function TelaSelectItem(props) {
             </div>
             <div className='content'>
                 <div className='form'>
-                    <form className="topo" onSubmit={btnBuscarItens}>
+                    <form className="topo">
                         <select name='equipamento' onChange={onChangeEquipamento}>
                             {equipamentos.map((equipamento) => {
                                 return (
@@ -175,7 +180,6 @@ function TelaSelectItem(props) {
                                 );
                             })}
                         </select>
-                        <button>Buscar</button>
                     </form>
                     <div className="tabelas">
                         <form className="esquerdo" name='selecionados' onSubmit={evtSelecionarItens}>
